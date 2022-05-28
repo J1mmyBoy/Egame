@@ -18,6 +18,7 @@ jobs:
       EPΙC_PASSWΟRD: ${{ secrets.EPIC_PASSWORD }}
       PUSHER_TELEGRAM: ${{ secrets.PUSHER_TELEGRAM }}
       PLAYER: ${{ secrets.EPIC_PLAYER }}
+      PUSHER_SERVERCHAN: ${{ secrets.PUSHER_SERVERCHAN }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -41,7 +42,5 @@ jobs:
       run: |
         if [ -f "ctx_cookies.yaml" ];then cp ctx_cookies.yaml epic/src/database/cookies/; fi
         cd epic/src/ && ${{ env.COMMAND }}
-        
-env:
- PUSHER_SERVERCHAN: ${{ secrets.PUSHER_SERVERCHAN }}
+
     
